@@ -1,6 +1,6 @@
-# Stacksmith
+# DevStack
 
-Stacksmith is a React and TypeScript workspace for exploring modern developer tools and curating a personal technology stack. It presents a focused catalog of real tools with quick filtering and a live stack builder.
+Dev Stack is a React and TypeScript workspace for exploring modern developer technologies and building a personalized development stack. It features a curated catalog of tools with quick filtering, category-based browsing, and a live stack builder for managing selected technologies.
 
 ## Technologies Used
 
@@ -13,9 +13,9 @@ Stacksmith is a React and TypeScript workspace for exploring modern developer to
 
 ## Key Features
 
-1. Search the catalog and filter tools by category.
-2. Add or remove technologies from a live personal stack with toast feedback.
-3. Responsive navigation, loading skeletons, mobile layout, and a reusable orange-to-pink-to-violet theme.
+1. Built a searchable, category-filtered technology catalog with dynamic personal-stack management.
+2. Implemented real-time toast feedback, responsive navigation, loading skeletons, and mobile-first UI.
+3. Developed a reusable orange–pink–violet design system for consistent theming.
 
 ## Run Locally
 
@@ -34,28 +34,30 @@ npm run build
 
 ### 1. What is JSX, and why is it used?
 
-JSX is a syntax that lets us write markup-like elements inside TypeScript or JavaScript. React turns that syntax into the elements it needs to render. It keeps a component's layout and behavior close together, which makes UI code easier to read.
+JSX is a syntax used in React to write HTML-like code inside JavaScript. It is used to make writing UI code in React easier and more readable by combining JavaScript with HTML-like syntax.
 
 ### 2. What is the difference between props and state?
 
-Props are values passed into a component by its parent. A component reads props but should not change them. State belongs to the component and can change over time; changing state causes React to render the affected UI again.
+Props are data passed from a parent component to a child component, while state is data managed and updated within a component.
 
 ### 3. What is `useState` and how does it work?
 
-`useState` is a React Hook for storing changing data in a function component. It returns the current value and a setter function. Calling the setter schedules a new render with the updated value, which is how Stacksmith keeps the selected stack in sync.
+useState is a React Hook used to create and manage state in a component. 
+It returns the current state value and a function to update it; when the state changes, React re-renders the component.
 
 ### 4. What is `useEffect` and when should it be used?
 
-`useEffect` runs code after React has rendered a component. It is useful for work that touches something outside the render calculation, such as a timer, browser API, subscription, or data request. Stacksmith uses it for the short initial loading state and cleans up the timer when needed.
+useEffect is a React Hook used to perform side effects in a component, such as fetching data, updating the document title, or setting up event listeners.
+It runs after the component renders and is used when we need to interact with something outside the component.
 
 ### 5. How do you share state between components?
 
-Keep the shared state in the nearest common parent and pass the current value and event handlers down as props. In this app, `App` owns the selected technologies, while the cards and sidebar receive the data and callbacks they need.
+State is shared between components by lifting it to their common parent and passing the state and its update function through props.
 
 ### 6. What is a controlled component?
 
-A controlled component gets its displayed value from React state and reports user changes through an event handler. The search input is controlled: its value comes from `query`, and typing calls `setQuery`.
+A controlled component is a form element whose value is controlled by React state. The input value is stored in state and updated using an event handler like onChange.
 
 ### 7. Why are keys needed when rendering lists?
 
-Keys give React a stable identity for each item in a list. They help React understand which item was added, removed, or changed, so it can update the DOM efficiently and preserve the right element state. Stacksmith uses each technology's stable `id` as its key.
+Keys help React identify each list item uniquely and efficiently update, add, or remove items when the list changes.
