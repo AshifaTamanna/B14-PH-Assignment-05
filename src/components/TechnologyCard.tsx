@@ -1,4 +1,5 @@
 import { Check, Plus, Star } from 'lucide-react'
+import javaIcon from '../assets/java.svg'
 import type { Technology } from '../types'
 
 type TechnologyCardProps = {
@@ -8,9 +9,11 @@ type TechnologyCardProps = {
 }
 
 export function TechnologyCard({ technology, isSelected, onToggle }: TechnologyCardProps) {
+  const icon = technology.id === 'java' ? javaIcon : technology.icon
+
   return (
     <article className="technology-card">
-      <div className="card-top"><div className="tech-icon"><img src={technology.icon} alt={`${technology.name} logo`} /></div>{technology.badge && <span className="tech-badge">{technology.badge}</span>}</div>
+      <div className="card-top"><div className="tech-icon"><img src={icon} alt={`${technology.name} logo`} /></div>{technology.badge && <span className="tech-badge">{technology.badge}</span>}</div>
       <div className="card-content">
         <h3>{technology.name}</h3>
         <p>{technology.description}</p>

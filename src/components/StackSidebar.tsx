@@ -1,4 +1,5 @@
 import { X } from 'lucide-react'
+import javaIcon from '../assets/java.svg'
 import type { Technology } from '../types'
 
 type StackSidebarProps = {
@@ -16,7 +17,7 @@ export function StackSidebar({ stack, onRemove, onRemoveAll }: StackSidebarProps
       ) : (
         <ul className="selected-list">
           {stack.map((technology) => (
-            <li key={technology.id}><img src={technology.icon} alt="" /><span><b>{technology.name}</b><small>{technology.category}</small></span><button onClick={() => onRemove(technology)} aria-label={`Remove ${technology.name}`}><X size={17} /></button>
+            <li key={technology.id}><img src={technology.id === 'java' ? javaIcon : technology.icon} alt="" /><span><b>{technology.name}</b><small>{technology.category}</small></span><button onClick={() => onRemove(technology)} aria-label={`Remove ${technology.name}`}><X size={17} /></button>
             </li>
           ))}
         </ul>
