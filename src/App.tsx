@@ -34,7 +34,7 @@ function App() {
     setStack((current) => current.filter((item) => item.id !== technology.id))
     toast.info(`${technology.name} removed from your stack.`)
   }
-
+//for removeAll
   const removeAll = () => {
     setStack([])
     toast.info('Your stack has been cleared.')
